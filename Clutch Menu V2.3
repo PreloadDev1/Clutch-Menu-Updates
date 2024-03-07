@@ -1,0 +1,1933 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88 
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER
+]=]
+
+-- Instances: 100 | Scripts: 1 | Modules: 2
+local G2L = {};
+
+-- StarterGui.ClutchMenu
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["DisplayOrder"] = 299999999;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["Name"] = [[ClutchMenu]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
+
+-- StarterGui.ClutchMenu.TopBar
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(61, 61, 61);
+G2L["2"]["BackgroundTransparency"] = 1;
+G2L["2"]["Size"] = UDim2.new(0.40325963497161865, 0, 0.03981902450323105, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Position"] = UDim2.new(0.3341553211212158, 0, 0.2457970529794693, 0);
+G2L["2"]["Name"] = [[TopBar]];
+
+-- StarterGui.ClutchMenu.TopBar.Title
+G2L["3"] = Instance.new("TextLabel", G2L["2"]);
+G2L["3"]["TextWrapped"] = true;
+G2L["3"]["BorderSizePixel"] = 0;
+G2L["3"]["TextScaled"] = true;
+G2L["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3"]["TextSize"] = 14;
+G2L["3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3"]["Size"] = UDim2.new(0.4000000059604645, 0, 0.75, 0);
+G2L["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3"]["Text"] = [[Clutch Menu]];
+G2L["3"]["Name"] = [[Title]];
+G2L["3"]["BackgroundTransparency"] = 1;
+G2L["3"]["Position"] = UDim2.new(0.02857142873108387, 0, 0.20000000298023224, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Minimise
+G2L["4"] = Instance.new("ImageButton", G2L["2"]);
+G2L["4"]["Active"] = false;
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["Selectable"] = false;
+G2L["4"]["Image"] = [[rbxassetid://13848182227]];
+G2L["4"]["Size"] = UDim2.new(0.0560000017285347, 0, 0.9890000224113464, 0);
+G2L["4"]["Name"] = [[Minimise]];
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Position"] = UDim2.new(0.9100000262260437, 0, 0.05000000074505806, 0);
+G2L["4"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Expand
+G2L["5"] = Instance.new("ImageButton", G2L["2"]);
+G2L["5"]["Active"] = false;
+G2L["5"]["ZIndex"] = 1000;
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["Selectable"] = false;
+G2L["5"]["Image"] = [[rbxassetid://13846086418]];
+G2L["5"]["Size"] = UDim2.new(0.0558156780898571, 0, 0.9890317320823669, 0);
+G2L["5"]["Name"] = [[Expand]];
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["Visible"] = false;
+G2L["5"]["Position"] = UDim2.new(0.9100000262260437, 0, 0.05000000074505806, 0);
+G2L["5"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper
+G2L["6"] = Instance.new("Frame", G2L["2"]);
+G2L["6"]["ZIndex"] = 0;
+G2L["6"]["BorderSizePixel"] = 0;
+G2L["6"]["BackgroundColor3"] = Color3.fromRGB(61, 61, 61);
+G2L["6"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["6"]["BackgroundTransparency"] = 1;
+G2L["6"]["Size"] = UDim2.new(1.0285714864730835, 0, 10.550000190734863, 0);
+G2L["6"]["ClipsDescendants"] = true;
+G2L["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6"]["Position"] = UDim2.new(0.5, 0, 5, 0);
+G2L["6"]["Name"] = [[Clipper]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page
+G2L["7"] = Instance.new("Frame", G2L["6"]);
+G2L["7"]["ZIndex"] = 10;
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(61, 61, 61);
+G2L["7"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["7"]["Size"] = UDim2.new(0.9722222089767456, 0, 0.9478672742843628, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+G2L["7"]["Name"] = [[Page]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages
+G2L["8"] = Instance.new("Frame", G2L["7"]);
+G2L["8"]["ZIndex"] = 100;
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["8"]["BackgroundTransparency"] = 1;
+G2L["8"]["Size"] = UDim2.new(0.9085713624954224, 0, 0.8800000548362732, 0);
+G2L["8"]["ClipsDescendants"] = true;
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["Position"] = UDim2.new(0.09142857044935226, 0, 0.11999985575675964, 0);
+G2L["8"]["Name"] = [[Pages]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement
+G2L["9"] = Instance.new("Frame", G2L["8"]);
+G2L["9"]["BorderSizePixel"] = 0;
+G2L["9"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["9"]["BackgroundTransparency"] = 1;
+G2L["9"]["Size"] = UDim2.new(0.999022901058197, 0, 1.00088369846344, 0);
+G2L["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["9"]["Name"] = [[Movement]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Title
+G2L["a"] = Instance.new("TextLabel", G2L["9"]);
+G2L["a"]["TextWrapped"] = true;
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextScaled"] = true;
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["Size"] = UDim2.new(0.30000001192092896, 0, 0.07434944063425064, 0);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[Movement]];
+G2L["a"]["Name"] = [[Title]];
+G2L["a"]["BackgroundTransparency"] = 1;
+G2L["a"]["Position"] = UDim2.new(0.009999999776482582, 0, 0, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands
+G2L["b"] = Instance.new("ScrollingFrame", G2L["9"]);
+G2L["b"]["Active"] = true;
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["CanvasSize"] = UDim2.new(0, 0, 2.4000000953674316, 0);
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["BackgroundTransparency"] = 1;
+G2L["b"]["Size"] = UDim2.new(1, 0, 0.8364312052726746, 0);
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["ScrollBarThickness"] = 8;
+G2L["b"]["Position"] = UDim2.new(0, 0, 0.10037174820899963, 0);
+G2L["b"]["Name"] = [[Commands]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider
+G2L["c"] = Instance.new("CanvasGroup", G2L["b"]);
+G2L["c"]["ZIndex"] = 10000;
+G2L["c"]["BorderSizePixel"] = 0;
+G2L["c"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["c"]["Size"] = UDim2.new(0.47999998927116394, 0, 0.061957865953445435, 0);
+G2L["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c"]["Position"] = UDim2.new(0.029999999329447746, 0, 0.08501722663640976, 0);
+G2L["c"]["Name"] = [[SpeedSlider]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.UICorner
+G2L["d"] = Instance.new("UICorner", G2L["c"]);
+G2L["d"]["CornerRadius"] = UDim.new(1, 1);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.UIStroke
+G2L["e"] = Instance.new("UIStroke", G2L["c"]);
+G2L["e"]["Thickness"] = 2;
+G2L["e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.UIAspectRatioConstraint
+G2L["f"] = Instance.new("UIAspectRatioConstraint", G2L["c"]);
+G2L["f"]["AspectRatio"] = 6;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.Slide
+G2L["10"] = Instance.new("Frame", G2L["c"]);
+G2L["10"]["Active"] = true;
+G2L["10"]["BorderSizePixel"] = 0;
+G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["10"]["Size"] = UDim2.new(0, 0, 1, 0);
+G2L["10"]["Selectable"] = true;
+G2L["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["10"]["Position"] = UDim2.new(-0.00007390338578261435, 0, 0, 0);
+G2L["10"]["Name"] = [[Slide]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.Slide.UICorner
+G2L["11"] = Instance.new("UICorner", G2L["10"]);
+G2L["11"]["CornerRadius"] = UDim.new(1, 1);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.Amount
+G2L["12"] = Instance.new("TextLabel", G2L["c"]);
+G2L["12"]["TextWrapped"] = true;
+G2L["12"]["BorderSizePixel"] = 0;
+G2L["12"]["TextScaled"] = true;
+G2L["12"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["12"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["12"]["TextSize"] = 14;
+G2L["12"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["12"]["ClipsDescendants"] = true;
+G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Text"] = [[16]];
+G2L["12"]["Name"] = [[Amount]];
+G2L["12"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedSlider.Trigger
+G2L["13"] = Instance.new("TextButton", G2L["c"]);
+G2L["13"]["ZIndex"] = 10;
+G2L["13"]["BorderSizePixel"] = 0;
+G2L["13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["13"]["TextSize"] = 14;
+G2L["13"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["13"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["13"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["13"]["Name"] = [[Trigger]];
+G2L["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["13"]["Text"] = [[]];
+G2L["13"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedTitle
+G2L["14"] = Instance.new("TextLabel", G2L["b"]);
+G2L["14"]["TextWrapped"] = true;
+G2L["14"]["ZIndex"] = 100000000;
+G2L["14"]["BorderSizePixel"] = 0;
+G2L["14"]["TextScaled"] = true;
+G2L["14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["14"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["14"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["14"]["TextSize"] = 14;
+G2L["14"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["14"]["Size"] = UDim2.new(0.30000001192092896, 0, 0.0387236662209034, 0);
+G2L["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["14"]["Text"] = [[Speed]];
+G2L["14"]["Name"] = [[SpeedTitle]];
+G2L["14"]["BackgroundTransparency"] = 1;
+G2L["14"]["Position"] = UDim2.new(0.04600000008940697, 0, 0.024163568392395973, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.SpeedTitle.UIAspectRatioConstraint
+G2L["15"] = Instance.new("UIAspectRatioConstraint", G2L["14"]);
+G2L["15"]["AspectRatio"] = 6;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider
+G2L["16"] = Instance.new("CanvasGroup", G2L["b"]);
+G2L["16"]["ZIndex"] = 10000;
+G2L["16"]["BorderSizePixel"] = 0;
+G2L["16"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["16"]["Size"] = UDim2.new(0.47999998927116394, 0, 0.061957865953445435, 0);
+G2L["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["16"]["Position"] = UDim2.new(0.029999999329447746, 0, 0.23499999940395355, 0);
+G2L["16"]["Name"] = [[JumpSlider]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.UICorner
+G2L["17"] = Instance.new("UICorner", G2L["16"]);
+G2L["17"]["CornerRadius"] = UDim.new(1, 1);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.UIStroke
+G2L["18"] = Instance.new("UIStroke", G2L["16"]);
+G2L["18"]["Thickness"] = 2;
+G2L["18"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.UIAspectRatioConstraint
+G2L["19"] = Instance.new("UIAspectRatioConstraint", G2L["16"]);
+G2L["19"]["AspectRatio"] = 6;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.Slide
+G2L["1a"] = Instance.new("Frame", G2L["16"]);
+G2L["1a"]["Active"] = true;
+G2L["1a"]["BorderSizePixel"] = 0;
+G2L["1a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1a"]["Size"] = UDim2.new(0, 0, 1, 0);
+G2L["1a"]["Selectable"] = true;
+G2L["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["Position"] = UDim2.new(-0.00007390338578261435, 0, 0, 0);
+G2L["1a"]["Name"] = [[Slide]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.Slide.UICorner
+G2L["1b"] = Instance.new("UICorner", G2L["1a"]);
+G2L["1b"]["CornerRadius"] = UDim.new(1, 1);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.Amount
+G2L["1c"] = Instance.new("TextLabel", G2L["16"]);
+G2L["1c"]["TextWrapped"] = true;
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["TextScaled"] = true;
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1c"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["1c"]["TextSize"] = 14;
+G2L["1c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["1c"]["ClipsDescendants"] = true;
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Text"] = [[16]];
+G2L["1c"]["Name"] = [[Amount]];
+G2L["1c"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpSlider.Trigger
+G2L["1d"] = Instance.new("TextButton", G2L["16"]);
+G2L["1d"]["ZIndex"] = 10;
+G2L["1d"]["BorderSizePixel"] = 0;
+G2L["1d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1d"]["TextSize"] = 14;
+G2L["1d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1d"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1d"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["1d"]["Name"] = [[Trigger]];
+G2L["1d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1d"]["Text"] = [[]];
+G2L["1d"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpTitle
+G2L["1e"] = Instance.new("TextLabel", G2L["b"]);
+G2L["1e"]["TextWrapped"] = true;
+G2L["1e"]["ZIndex"] = 100000000;
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["TextScaled"] = true;
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["1e"]["TextSize"] = 14;
+G2L["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["Size"] = UDim2.new(0.30000001192092896, 0, 0.0387236662209034, 0);
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Text"] = [[Jump]];
+G2L["1e"]["Name"] = [[JumpTitle]];
+G2L["1e"]["BackgroundTransparency"] = 1;
+G2L["1e"]["Position"] = UDim2.new(0.04600000008940697, 0, 0.17399999499320984, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.JumpTitle.UIAspectRatioConstraint
+G2L["1f"] = Instance.new("UIAspectRatioConstraint", G2L["1e"]);
+G2L["1f"]["AspectRatio"] = 6;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.Freeze
+G2L["20"] = Instance.new("TextButton", G2L["b"]);
+G2L["20"]["TextWrapped"] = true;
+G2L["20"]["ZIndex"] = 10000;
+G2L["20"]["BorderSizePixel"] = 0;
+G2L["20"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["20"]["TextSize"] = 25;
+G2L["20"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["20"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["20"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["20"]["Name"] = [[Freeze]];
+G2L["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["20"]["Text"] = [[Freeze Character]];
+G2L["20"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.32499998807907104, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.Freeze.UICorner
+G2L["21"] = Instance.new("UICorner", G2L["20"]);
+G2L["21"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.Freeze.UIStroke
+G2L["22"] = Instance.new("UIStroke", G2L["20"]);
+G2L["22"]["Thickness"] = 2;
+G2L["22"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.Freeze.UIAspectRatioConstraint
+G2L["23"] = Instance.new("UIAspectRatioConstraint", G2L["20"]);
+G2L["23"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.UnFreeze
+G2L["24"] = Instance.new("TextButton", G2L["b"]);
+G2L["24"]["TextWrapped"] = true;
+G2L["24"]["ZIndex"] = 10000;
+G2L["24"]["BorderSizePixel"] = 0;
+G2L["24"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["24"]["TextSize"] = 25;
+G2L["24"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["24"]["Name"] = [[UnFreeze]];
+G2L["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["24"]["Text"] = [[Unfreeze Character]];
+G2L["24"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.42500001192092896, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.UnFreeze.UICorner
+G2L["25"] = Instance.new("UICorner", G2L["24"]);
+G2L["25"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.UnFreeze.UIStroke
+G2L["26"] = Instance.new("UIStroke", G2L["24"]);
+G2L["26"]["Thickness"] = 2;
+G2L["26"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.UnFreeze.UIAspectRatioConstraint
+G2L["27"] = Instance.new("UIAspectRatioConstraint", G2L["24"]);
+G2L["27"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableNoclip
+G2L["28"] = Instance.new("TextButton", G2L["b"]);
+G2L["28"]["TextWrapped"] = true;
+G2L["28"]["ZIndex"] = 10000;
+G2L["28"]["BorderSizePixel"] = 0;
+G2L["28"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["28"]["TextSize"] = 25;
+G2L["28"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["28"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["28"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["28"]["Name"] = [[DisableNoclip]];
+G2L["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["28"]["Text"] = [[Disable Noclip]];
+G2L["28"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.625, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableNoclip.UICorner
+G2L["29"] = Instance.new("UICorner", G2L["28"]);
+G2L["29"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableNoclip.UIStroke
+G2L["2a"] = Instance.new("UIStroke", G2L["28"]);
+G2L["2a"]["Thickness"] = 2;
+G2L["2a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableNoclip.UIAspectRatioConstraint
+G2L["2b"] = Instance.new("UIAspectRatioConstraint", G2L["28"]);
+G2L["2b"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableNoclip
+G2L["2c"] = Instance.new("TextButton", G2L["b"]);
+G2L["2c"]["TextWrapped"] = true;
+G2L["2c"]["ZIndex"] = 10000;
+G2L["2c"]["BorderSizePixel"] = 0;
+G2L["2c"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["2c"]["TextSize"] = 25;
+G2L["2c"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["2c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2c"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["2c"]["Name"] = [[EnableNoclip]];
+G2L["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2c"]["Text"] = [[Enable Noclip]];
+G2L["2c"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.5249999761581421, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableNoclip.UICorner
+G2L["2d"] = Instance.new("UICorner", G2L["2c"]);
+G2L["2d"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableNoclip.UIStroke
+G2L["2e"] = Instance.new("UIStroke", G2L["2c"]);
+G2L["2e"]["Thickness"] = 2;
+G2L["2e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableNoclip.UIAspectRatioConstraint
+G2L["2f"] = Instance.new("UIAspectRatioConstraint", G2L["2c"]);
+G2L["2f"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableInfJump
+G2L["30"] = Instance.new("TextButton", G2L["b"]);
+G2L["30"]["TextWrapped"] = true;
+G2L["30"]["ZIndex"] = 10000;
+G2L["30"]["BorderSizePixel"] = 0;
+G2L["30"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["30"]["TextSize"] = 25;
+G2L["30"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["30"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["30"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["30"]["Name"] = [[EnableInfJump]];
+G2L["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["30"]["Text"] = [[Enable Infinite Jmp]];
+G2L["30"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.7250000238418579, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableInfJump.UICorner
+G2L["31"] = Instance.new("UICorner", G2L["30"]);
+G2L["31"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableInfJump.UIStroke
+G2L["32"] = Instance.new("UIStroke", G2L["30"]);
+G2L["32"]["Thickness"] = 2;
+G2L["32"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.EnableInfJump.UIAspectRatioConstraint
+G2L["33"] = Instance.new("UIAspectRatioConstraint", G2L["30"]);
+G2L["33"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableInfJump
+G2L["34"] = Instance.new("TextButton", G2L["b"]);
+G2L["34"]["TextWrapped"] = true;
+G2L["34"]["ZIndex"] = 10000;
+G2L["34"]["BorderSizePixel"] = 0;
+G2L["34"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["34"]["TextSize"] = 25;
+G2L["34"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["34"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["34"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["34"]["Name"] = [[DisableInfJump]];
+G2L["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["34"]["Text"] = [[Disable Infinite Jump]];
+G2L["34"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.824999988079071, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableInfJump.UICorner
+G2L["35"] = Instance.new("UICorner", G2L["34"]);
+G2L["35"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableInfJump.UIStroke
+G2L["36"] = Instance.new("UIStroke", G2L["34"]);
+G2L["36"]["Thickness"] = 2;
+G2L["36"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Movement.Commands.DisableInfJump.UIAspectRatioConstraint
+G2L["37"] = Instance.new("UIAspectRatioConstraint", G2L["34"]);
+G2L["37"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera
+G2L["38"] = Instance.new("Frame", G2L["8"]);
+G2L["38"]["BorderSizePixel"] = 0;
+G2L["38"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["38"]["BackgroundTransparency"] = 1;
+G2L["38"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["38"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["38"]["Position"] = UDim2.new(0, 0, 1, 0);
+G2L["38"]["Name"] = [[Camera]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Title
+G2L["39"] = Instance.new("TextLabel", G2L["38"]);
+G2L["39"]["TextWrapped"] = true;
+G2L["39"]["BorderSizePixel"] = 0;
+G2L["39"]["TextScaled"] = true;
+G2L["39"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["39"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["39"]["TextSize"] = 14;
+G2L["39"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["39"]["Size"] = UDim2.new(0.2997068762779236, 0, 0.07441514730453491, 0);
+G2L["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["39"]["Text"] = [[Camera]];
+G2L["39"]["Name"] = [[Title]];
+G2L["39"]["BackgroundTransparency"] = 1;
+G2L["39"]["Position"] = UDim2.new(0.009990229271352291, 0, 0, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands
+G2L["3a"] = Instance.new("ScrollingFrame", G2L["38"]);
+G2L["3a"]["Active"] = true;
+G2L["3a"]["BorderSizePixel"] = 0;
+G2L["3a"]["CanvasSize"] = UDim2.new(0, 0, 2.4000000953674316, 0);
+G2L["3a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3a"]["BackgroundTransparency"] = 1;
+G2L["3a"]["Size"] = UDim2.new(1, 0, 0.8364312052726746, 0);
+G2L["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3a"]["ScrollBarThickness"] = 8;
+G2L["3a"]["Position"] = UDim2.new(0, 0, 0.10037174820899963, 0);
+G2L["3a"]["Name"] = [[Commands]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableESP
+G2L["3b"] = Instance.new("TextButton", G2L["3a"]);
+G2L["3b"]["TextWrapped"] = true;
+G2L["3b"]["ZIndex"] = 10000;
+G2L["3b"]["BorderSizePixel"] = 0;
+G2L["3b"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["3b"]["TextSize"] = 25;
+G2L["3b"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3b"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["3b"]["Name"] = [[EnableESP]];
+G2L["3b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3b"]["Text"] = [[Enable ESP]];
+G2L["3b"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.02500000037252903, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableESP.UICorner
+G2L["3c"] = Instance.new("UICorner", G2L["3b"]);
+G2L["3c"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableESP.UIStroke
+G2L["3d"] = Instance.new("UIStroke", G2L["3b"]);
+G2L["3d"]["Thickness"] = 2;
+G2L["3d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableESP.UIAspectRatioConstraint
+G2L["3e"] = Instance.new("UIAspectRatioConstraint", G2L["3b"]);
+G2L["3e"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableESP
+G2L["3f"] = Instance.new("TextButton", G2L["3a"]);
+G2L["3f"]["TextWrapped"] = true;
+G2L["3f"]["ZIndex"] = 10000;
+G2L["3f"]["BorderSizePixel"] = 0;
+G2L["3f"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["3f"]["TextSize"] = 25;
+G2L["3f"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3f"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["3f"]["Name"] = [[DisableESP]];
+G2L["3f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3f"]["Text"] = [[Disable ESP]];
+G2L["3f"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.125, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableESP.UICorner
+G2L["40"] = Instance.new("UICorner", G2L["3f"]);
+G2L["40"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableESP.UIStroke
+G2L["41"] = Instance.new("UIStroke", G2L["3f"]);
+G2L["41"]["Thickness"] = 2;
+G2L["41"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableESP.UIAspectRatioConstraint
+G2L["42"] = Instance.new("UIAspectRatioConstraint", G2L["3f"]);
+G2L["42"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableLockOn
+G2L["43"] = Instance.new("TextButton", G2L["3a"]);
+G2L["43"]["TextWrapped"] = true;
+G2L["43"]["ZIndex"] = 10000;
+G2L["43"]["BorderSizePixel"] = 0;
+G2L["43"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["43"]["TextSize"] = 25;
+G2L["43"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["43"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["43"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["43"]["Name"] = [[EnableLockOn]];
+G2L["43"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["43"]["Text"] = [[Enable Lock-On]];
+G2L["43"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.22499999403953552, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableLockOn.UICorner
+G2L["44"] = Instance.new("UICorner", G2L["43"]);
+G2L["44"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableLockOn.UIStroke
+G2L["45"] = Instance.new("UIStroke", G2L["43"]);
+G2L["45"]["Thickness"] = 2;
+G2L["45"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.EnableLockOn.UIAspectRatioConstraint
+G2L["46"] = Instance.new("UIAspectRatioConstraint", G2L["43"]);
+G2L["46"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableLockOn
+G2L["47"] = Instance.new("TextButton", G2L["3a"]);
+G2L["47"]["TextWrapped"] = true;
+G2L["47"]["ZIndex"] = 10000;
+G2L["47"]["BorderSizePixel"] = 0;
+G2L["47"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["47"]["TextSize"] = 25;
+G2L["47"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["47"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["47"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.0774473324418068, 0);
+G2L["47"]["Name"] = [[DisableLockOn]];
+G2L["47"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["47"]["Text"] = [[Disable Lock-On]];
+G2L["47"]["Position"] = UDim2.new(0.02800000086426735, 0, 0.32499998807907104, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableLockOn.UICorner
+G2L["48"] = Instance.new("UICorner", G2L["47"]);
+G2L["48"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableLockOn.UIStroke
+G2L["49"] = Instance.new("UIStroke", G2L["47"]);
+G2L["49"]["Thickness"] = 2;
+G2L["49"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Pages.Camera.Commands.DisableLockOn.UIAspectRatioConstraint
+G2L["4a"] = Instance.new("UIAspectRatioConstraint", G2L["47"]);
+G2L["4a"]["AspectRatio"] = 9;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Lines
+G2L["4b"] = Instance.new("Frame", G2L["7"]);
+G2L["4b"]["ZIndex"] = 100;
+G2L["4b"]["BorderSizePixel"] = 0;
+G2L["4b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4b"]["BackgroundTransparency"] = 1;
+G2L["4b"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["4b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4b"]["Name"] = [[Lines]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Lines.Line1
+G2L["4c"] = Instance.new("Frame", G2L["4b"]);
+G2L["4c"]["BorderSizePixel"] = 0;
+G2L["4c"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["4c"]["Size"] = UDim2.new(0.996999979019165, 0, 0.007499999832361937, 0);
+G2L["4c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4c"]["Position"] = UDim2.new(0.0028571425937116146, 0, 0.10999999940395355, 0);
+G2L["4c"]["Name"] = [[Line1]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.Lines.Line2
+G2L["4d"] = Instance.new("Frame", G2L["4b"]);
+G2L["4d"]["BorderSizePixel"] = 0;
+G2L["4d"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+G2L["4d"]["Size"] = UDim2.new(0.0057142856530845165, 0, 0.8899999856948853, 0);
+G2L["4d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4d"]["Position"] = UDim2.new(0.08571428060531616, 0, 0.10999999940395355, 0);
+G2L["4d"]["Name"] = [[Line2]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.SideBar
+G2L["4e"] = Instance.new("Frame", G2L["7"]);
+G2L["4e"]["ZIndex"] = 100;
+G2L["4e"]["BorderSizePixel"] = 0;
+G2L["4e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4e"]["BackgroundTransparency"] = 1;
+G2L["4e"]["Size"] = UDim2.new(0.08571428060531616, 0, 0.8899999856948853, 0);
+G2L["4e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4e"]["Position"] = UDim2.new(0, 0, 0.11999999731779099, 0);
+G2L["4e"]["Name"] = [[SideBar]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.SideBar.Movement
+G2L["4f"] = Instance.new("ImageButton", G2L["4e"]);
+G2L["4f"]["BorderSizePixel"] = 0;
+G2L["4f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4f"]["Image"] = [[rbxassetid://13849349402]];
+G2L["4f"]["Size"] = UDim2.new(0.9700000286102295, 0, 0.16899999976158142, 0);
+G2L["4f"]["Name"] = [[Movement]];
+G2L["4f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4f"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.SideBar.Slider
+G2L["50"] = Instance.new("Frame", G2L["4e"]);
+G2L["50"]["ZIndex"] = 10;
+G2L["50"]["BorderSizePixel"] = 0;
+G2L["50"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
+G2L["50"]["Size"] = UDim2.new(0.06666667014360428, 0, 0.16853933036327362, 0);
+G2L["50"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["50"]["Position"] = UDim2.new(1, 0, 0, 0);
+G2L["50"]["Name"] = [[Slider]];
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.SideBar.Slider.UICorner
+G2L["51"] = Instance.new("UICorner", G2L["50"]);
+G2L["51"]["CornerRadius"] = UDim.new(1, 1);
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.SideBar.Camera
+G2L["52"] = Instance.new("ImageButton", G2L["4e"]);
+G2L["52"]["BorderSizePixel"] = 0;
+G2L["52"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["52"]["Image"] = [[rbxassetid://13846711416]];
+G2L["52"]["Size"] = UDim2.new(0.9701882004737854, 0, 0.16853931546211243, 0);
+G2L["52"]["Name"] = [[Camera]];
+G2L["52"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["52"]["Position"] = UDim2.new(0, 0, 0.16899999976158142, 0);
+G2L["52"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.UIStroke
+G2L["53"] = Instance.new("UIStroke", G2L["7"]);
+G2L["53"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["53"]["Thickness"] = 3;
+G2L["53"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.UIStroke.Spinner
+G2L["54"] = Instance.new("UIGradient", G2L["53"]);
+G2L["54"]["Name"] = [[Spinner]];
+G2L["54"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(0, 171, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- StarterGui.ClutchMenu.TopBar.Clipper.Page.UICorner
+G2L["55"] = Instance.new("UICorner", G2L["7"]);
+G2L["55"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Handler
+G2L["56"] = Instance.new("LocalScript", G2L["2"]);
+G2L["56"]["Name"] = [[Handler]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.UIAnimations
+G2L["57"] = Instance.new("ModuleScript", G2L["56"]);
+G2L["57"]["Name"] = [[UIAnimations]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Speed
+G2L["58"] = Instance.new("NumberValue", G2L["56"]);
+G2L["58"]["Value"] = 16;
+G2L["58"]["Name"] = [[Speed]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Jump
+G2L["59"] = Instance.new("NumberValue", G2L["56"]);
+G2L["59"]["Name"] = [[Jump]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Main
+G2L["5a"] = Instance.new("Frame", G2L["56"]);
+G2L["5a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5a"]["BackgroundTransparency"] = 1;
+G2L["5a"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["5a"]["Name"] = [[Main]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Main.Target
+G2L["5b"] = Instance.new("CanvasGroup", G2L["5a"]);
+G2L["5b"]["GroupTransparency"] = 1;
+G2L["5b"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5b"]["BackgroundTransparency"] = 0.800000011920929;
+G2L["5b"]["Size"] = UDim2.new(0.1679999977350235, 0, 0.026000000536441803, 0);
+G2L["5b"]["Position"] = UDim2.new(0.006000000052154064, 0, 0.9649999737739563, 0);
+G2L["5b"]["Name"] = [[Target]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Main.Target.UICorner
+G2L["5c"] = Instance.new("UICorner", G2L["5b"]);
+G2L["5c"]["CornerRadius"] = UDim.new(0, 4);
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Main.Target.Health
+G2L["5d"] = Instance.new("Frame", G2L["5b"]);
+G2L["5d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5d"]["BackgroundTransparency"] = 0.6499999761581421;
+G2L["5d"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["5d"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+G2L["5d"]["Position"] = UDim2.new(-2.9110939436804983e-08, 0, 0, 0);
+G2L["5d"]["Name"] = [[Health]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Main.Target.Health.UICorner
+G2L["5e"] = Instance.new("UICorner", G2L["5d"]);
+G2L["5e"]["CornerRadius"] = UDim.new(0, 4);
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Main.Target.TargetLabel
+G2L["5f"] = Instance.new("TextLabel", G2L["5b"]);
+G2L["5f"]["TextWrapped"] = true;
+G2L["5f"]["ZIndex"] = 2;
+G2L["5f"]["BorderSizePixel"] = 0;
+G2L["5f"]["TextScaled"] = true;
+G2L["5f"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5f"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["5f"]["TextSize"] = 14;
+G2L["5f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5f"]["Size"] = UDim2.new(0.9075443744659424, 0, 0.9075444936752319, 0);
+G2L["5f"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+G2L["5f"]["Text"] = [[NPC]];
+G2L["5f"]["Name"] = [[TargetLabel]];
+G2L["5f"]["BackgroundTransparency"] = 1;
+G2L["5f"]["Position"] = UDim2.new(0.04285246506333351, 0, 0.04622780904173851, 0);
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Camera
+G2L["60"] = Instance.new("ModuleScript", G2L["56"]);
+G2L["60"]["Name"] = [[Camera]];
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Template
+G2L["61"] = Instance.new("TextLabel", G2L["56"]);
+G2L["61"]["TextWrapped"] = true;
+G2L["61"]["BorderSizePixel"] = 0;
+G2L["61"]["TextScaled"] = true;
+G2L["61"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["61"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["61"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["61"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["61"]["Size"] = UDim2.new(1, 0, 0.10000000149011612, 0);
+G2L["61"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["61"]["Text"] = [[Noclip]];
+G2L["61"]["Name"] = [[Template]];
+G2L["61"]["BackgroundTransparency"] = 1;
+
+-- StarterGui.ClutchMenu.TopBar.Handler.Template.Spinner
+G2L["62"] = Instance.new("UIGradient", G2L["61"]);
+G2L["62"]["Name"] = [[Spinner]];
+G2L["62"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 0, 0)),ColorSequenceKeypoint.new(0.200, Color3.fromRGB(255, 171, 0)),ColorSequenceKeypoint.new(0.400, Color3.fromRGB(255, 255, 0)),ColorSequenceKeypoint.new(0.600, Color3.fromRGB(0, 255, 0)),ColorSequenceKeypoint.new(0.800, Color3.fromRGB(0, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(0, 86, 255))};
+G2L["62"]["Offset"] = Vector2.new(-0.30000001192092896, 0);
+
+-- StarterGui.ClutchMenu.HackList
+G2L["63"] = Instance.new("Frame", G2L["1"]);
+G2L["63"]["BorderSizePixel"] = 0;
+G2L["63"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["63"]["BackgroundTransparency"] = 1;
+G2L["63"]["Size"] = UDim2.new(0.14641287922859192, 0, 0.3911342918872833, 0);
+G2L["63"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["63"]["Position"] = UDim2.new(0, 0, 0.6075619459152222, 0);
+G2L["63"]["Name"] = [[HackList]];
+
+-- StarterGui.ClutchMenu.HackList.UIListLayout
+G2L["64"] = Instance.new("UIListLayout", G2L["63"]);
+G2L["64"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
+G2L["64"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- Require G2L wrapper
+local G2L_REQUIRE = require;
+local G2L_MODULES = {};
+local function require(Module:ModuleScript)
+    local ModuleState = G2L_MODULES[Module];
+    if ModuleState then
+        if not ModuleState.Required then
+            ModuleState.Required = true;
+            ModuleState.Value = ModuleState.Closure();
+        end
+        return ModuleState.Value;
+    end;
+    return G2L_REQUIRE(Module);
+end
+
+G2L_MODULES[G2L["57"]] = {
+Closure = function()
+    local script = G2L["57"];
+local UIAnimations = {}
+local CurrentItems = {}
+UIAnimations.__index = UIAnimations
+
+local TS = game:GetService("TweenService")
+local Player = game.Players.LocalPlayer or game.Players:GetPropertyChangedSignal("LocalPlayer")
+local Mouse = Player:GetMouse()
+
+local function IsInFrame(v)
+
+	local X = Mouse.X
+	local Y = Mouse.Y
+
+	if X>v.AbsolutePosition.X and Y>v.AbsolutePosition.Y and X<v.AbsolutePosition.X+v.AbsoluteSize.X and Y<v.AbsolutePosition.Y+v.AbsoluteSize.Y then
+		return true
+	else 
+		return false
+	end
+end
+
+local function CheckMouseExited(Object)
+
+	if not Object.MouseIsInFrame and Object.MouseWasIn then
+		Object.MouseWasIn = false
+		Object.LeaveEvent:Fire()
+	end
+end
+
+
+local function CheckMouseEntered(Object)
+	if Object.MouseIsInFrame and not Object.MouseWasIn then
+		Object.MouseWasIn = true
+		Object.EnteredEvent:Fire()
+	end
+end
+
+game:GetService("RunService").Heartbeat:Connect(function()
+	
+	for _, Object in pairs(CurrentItems) do
+		Object.MouseIsInFrame = IsInFrame(Object.UIObj)
+		CheckMouseExited(Object)
+	end
+
+	for _, Object in pairs(CurrentItems) do
+		CheckMouseEntered(Object)
+	end
+end)
+
+function UIAnimations.MouseEnterLeaveEvent(UIObj)
+	if CurrentItems[UIObj] then
+		return CurrentItems[UIObj].EnteredEvent.Event,CurrentItems[UIObj].LeaveEvent.Event
+	end     
+
+	local newObj = {}
+
+	newObj.UIObj = UIObj
+
+	local EnterEvent = Instance.new("BindableEvent")
+	local LeaveEvent = Instance.new("BindableEvent")
+
+	newObj.EnteredEvent = EnterEvent
+	newObj.LeaveEvent = LeaveEvent
+	newObj.MouseWasIn = false
+	CurrentItems[UIObj] = newObj
+
+	UIObj.AncestryChanged:Connect(function()
+		if not UIObj.Parent then
+			EnterEvent:Destroy()    
+			LeaveEvent:Destroy()    
+			CurrentItems[UIObj] = nil
+		end
+	end)
+
+	return EnterEvent.Event,LeaveEvent.Event
+end
+
+local start = tick()
+
+function UIAnimations.ShakeCamera(Intensity, Blur, FallOffSpeed) 
+	local iterator = 0
+	local seed = Random.new():NextNumber()
+
+	local blurEffect = nil
+	if Blur == true then
+		blurEffect = Instance.new("BlurEffect")
+		blurEffect.Size = 0
+		blurEffect.Parent = game.Lighting
+	end
+
+	while Intensity > 0 do
+
+		game:GetService("RunService").Heartbeat:Wait()
+
+		local now = tick() - start
+
+		iterator += 1
+
+		local shake = (Intensity ^ 2)
+		
+		if game.Workspace.CurrentCamera.CameraSubject.Name == "Humanoid" then
+			if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position then
+				local distance = (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude
+
+				shake = shake / math.clamp((distance * 0.1), 0.7, math.huge)
+			end		
+		else
+			if game.Workspace.CurrentCamera.CameraSubject.Position then
+				local distance = (game.Workspace.CurrentCamera.CFrame.Position - game.Workspace.CurrentCamera.CameraSubject.Position).Magnitude
+
+				shake = shake / math.clamp((distance * 0.1), 0.7, math.huge)
+			end
+		end
+
+		local noiseX = (math.noise(iterator, now, seed)) * shake
+		local noiseY = (math.noise(iterator + 1, now, seed)) * shake
+		local noiseZ = (math.noise(iterator + 2 + 1, now, seed)) * shake
+
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").CameraOffset = Vector3.new(noiseX, noiseY, noiseZ)
+		game.Workspace.CurrentCamera.CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.Angles(noiseX / 50, noiseY / 50, noiseZ / 50)
+
+		if blurEffect then
+			blurEffect.Size = shake * 12
+		end
+
+		Intensity = math.clamp(Intensity - FallOffSpeed * game:GetService("RunService").Heartbeat:Wait(), 0, 1)
+	end
+
+	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").CameraOffset = Vector3.new(0, 0, 0)
+
+	if blurEffect then
+		blurEffect:Destroy()
+	end
+end
+
+function UIAnimations.TweenBackTransparency(Frame, Transparency, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		BackgroundTransparency = Transparency
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+	
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+local function HasDuplicates(Parent, ItemToCheck)
+	for _, Child in pairs(Parent:GetChildren()) do
+		if Child:IsA(ItemToCheck.ClassName) and Child.Name == ItemToCheck.Name and Child ~= ItemToCheck and ItemToCheck.Parent == Child.Parent then
+			return true, Child
+		end
+	end
+	return false
+end
+
+function UIAnimations.RemoveDescendants(Ancestor)
+	for i, Parent in pairs(Ancestor:GetDescendants()) do
+		for i,tocheck in pairs(Parent:GetDescendants()) do
+			local Status, FoundItem = HasDuplicates(Parent,tocheck)
+			if Status and FoundItem~= nil then
+				FoundItem:Destroy()
+			end
+		end
+	end
+end
+
+function UIAnimations.RemoveChildren(Ancestor)
+	for i, Parent in pairs(Ancestor:GetChildren()) do
+		for i,tocheck in pairs(Parent:GetChildren()) do
+			local Status, FoundItem = HasDuplicates(Parent,tocheck)
+			if Status and FoundItem~= nil then
+				FoundItem:Destroy()
+			end
+		end
+	end
+end
+
+function UIAnimations.TweenBackColour(Frame, Colour, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		BackgroundColor3 = Colour
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.TweenPos(Frame, Pos, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		Position = Pos
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.Parallax(Part)
+	local self = {}
+	
+	
+	return setmetatable(self, UIAnimations)
+end
+
+function UIAnimations:StartParallax()
+	
+end
+
+function UIAnimations:StopParallax()
+
+end
+
+function UIAnimations.TweenSize(Frame, Size, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		Size = Size
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.TweenTextColour(Frame, Colour, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		TextColor3 = Colour
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties, TweenStyle)
+	Tween:Play()
+end
+
+function UIAnimations.TweenImageColour(Frame, Colour, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		ImageColor3 = Colour
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.TweenRotation(Frame, RotationValue, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		Rotation = RotationValue
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.UIStrokeSize(Stroke, Size, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		Thickness = Size
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Stroke, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.UICornerHarshness(UICorner, Harshness, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		CornerRadius = Harshness
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(UICorner, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.UIStrokeTransparency(Stroke, Transparency, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		Transparency = Transparency
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Stroke, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.UIStrokeColour(Stroke, Colour, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		Color = Colour
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Stroke, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.InfiniteRotation(Frame, Speed)
+	while wait(0.05 / Speed) do
+		Frame.Rotation += 3
+	end
+end
+
+function UIAnimations.TweenTextTransparency(Frame, Transparency, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		TextTransparency = Transparency
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+function UIAnimations.TweenImageTransparency(Frame, Transparency, TweenTime, TweenStyle)
+	local TweenInBackProperties = {
+		ImageTransparency = Transparency
+	}
+	local TweenInf = TweenInfo.new(TweenTime, TweenStyle, Enum.EasingDirection.InOut, 0, false)
+
+	local Tween = TS:Create(Frame, TweenInf, TweenInBackProperties)
+	Tween:Play()
+end
+
+return UIAnimations
+end;
+};
+G2L_MODULES[G2L["60"]] = {
+Closure = function()
+    local script = G2L["60"];
+local runService = game:GetService("RunService")
+local tweenService = game:GetService("TweenService")
+local userInputService = game:GetService("UserInputService")
+
+local camera = {}
+
+camera.LockOnInfo = {
+	Range = 9999, -- The range of the lock on
+	Speed = 20, -- The speed of which the lock on camera is moving
+	Offset = Vector3.new(3, 4, -9), -- The camera offset when using lock on
+	LockOnPlayers = true, -- Lock on player in the world
+	RequiresLineOfSight = false,-- If the characer needs line of sight with target to use lock on.
+	ObstructionBreakTime = 0.5, -- The time without line of sight that takes to exit the lock on.
+	SwitchDebounce = 0.3, -- The debounce or cooldown of switching targets
+	SwitchSens = 5, -- How sensetive the switching should be
+	SwitchRange = 9999, -- How far away you can switch target
+}
+
+-- Optimized some code which is not present in the video // https://www.youtube.com/@TeletacosRobloxTutorials
+
+local target 
+local lookConnection, healthConnection
+
+function camera.GetTargetsInRange(character)
+	local targets = {}
+
+	for i, part in pairs(workspace:GetPartBoundsInRadius(character.HumanoidRootPart.Position, camera.LockOnInfo.Range)) do
+		if part:IsA("BasePart") and part.Parent:FindFirstChild("Humanoid") then
+			if game.Players:GetPlayerFromCharacter(part.Parent) then
+				if camera.LockOnInfo.LockOnPlayers == true then
+					if not table.find(targets, part.Parent) then
+						table.insert(targets, part.Parent)
+					end	
+				end
+			else
+				if not table.find(targets, part.Parent) then
+					table.insert(targets, part.Parent)
+				end	
+			end
+		end
+	end
+
+	return targets
+end
+
+function camera.GetTargetsClosestCrosshair(character, cam)
+	local targets = camera.GetTargetsInRange(character)
+
+	local nearest = 1
+	local target = nil
+
+	for i, char in targets do
+		if char and char ~= character then
+			local distance = (char.HumanoidRootPart.Position - character.HumanoidRootPart.Position).Magnitude
+
+			local cameraToTarget = (char.HumanoidRootPart.Position - cam.CFrame.Position).Unit
+			local cameraLook = cam.CFrame.LookVector
+
+			local dotProduct = cameraToTarget:Dot(cameraLook)
+			local difference = math.abs(1 - dotProduct)
+
+			if distance < camera.LockOnInfo.Range and dotProduct > 0.5 then
+				if difference < nearest then
+					nearest = difference
+					target = char
+				end
+			end
+		end
+	end
+
+	local rightTarget = nil
+	local leftTarget = nil
+
+	local nearestRight = camera.LockOnInfo.SwitchRange
+	local nearestLeft = -camera.LockOnInfo.SwitchRange
+
+	for i, char in targets do
+		if char and target and char ~= target then
+			local distance = character.HumanoidRootPart.CFrame:ToObjectSpace(char.HumanoidRootPart.CFrame)		
+			if distance.Z < 0 then
+				if distance.X > 0 then
+					if nearestRight then
+						if distance.X < nearestRight then
+							nearestRight = distance.X
+							rightTarget = char
+						end
+					else
+						nearestRight = distance.X
+						rightTarget = char		
+					end
+				elseif distance.X < 0 then
+					if nearestLeft then
+						if distance.X > nearestLeft then
+							nearestLeft = distance.X
+							leftTarget = char
+						end
+					else
+						nearestLeft = distance.X
+						leftTarget = char		
+					end
+
+				end
+			end
+		end
+	end
+
+	return target, rightTarget, leftTarget
+end
+
+function camera.IsTargetInView(character, target)
+	local excludedCharacters = camera.GetTargetsInRange(character)
+	table.remove(excludedCharacters, table.find(excludedCharacters, target))
+
+	local rayParams = RaycastParams.new()
+	rayParams.FilterType = Enum.RaycastFilterType.Exclude
+	rayParams.FilterDescendantsInstances = excludedCharacters
+
+	local origin = character.HumanoidRootPart.Position
+	local direction = (target.HumanoidRootPart.Position - origin).Unit
+
+	local ray = workspace:Raycast(origin, direction * camera.LockOnInfo.Range, rayParams)
+
+	if ray then
+		if ray.Instance.Parent == target then
+			return true
+		end
+	end
+
+	return false
+end
+
+function camera.SelectTarget(target, newTarget)
+	if target then
+		local selection = target:FindFirstChild("Selection")
+
+		if selection then
+			selection:Destroy()
+		end
+	end
+
+	if newTarget then
+		local newSelection = Instance.new("Highlight", newTarget)
+		newSelection.FillTransparency = 0.65
+		newSelection.FillColor = Color3.fromRGB(255, 0, 4)
+		newSelection.OutlineTransparency = 1
+		newSelection.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+		newSelection.Name = "Selection"
+	end
+end
+
+function camera.SetLocalTransparency(character, transparency) -- Used to prevent the character from being invisible when locking if first person
+	for i, v in pairs(character:GetDescendants()) do
+		if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
+			v.LocalTransparencyModifier = transparency
+		end
+	end
+end
+
+function camera.LockNearest(targetFrame)
+	local cam = workspace.CurrentCamera
+
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+
+	local character = player.Character
+
+	if not character then return end
+
+	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+	local humanoid = character:WaitForChild("Humanoid")
+
+	target = camera.GetTargetsClosestCrosshair(character, cam)
+	camera.SelectTarget(nil, target)
+
+	if target and target:FindFirstChild("Humanoid") and camera.IsTargetInView(character, target) then	
+		camera.SetLocalTransparency(character, 0)
+
+		cam.CameraType = Enum.CameraType.Scriptable
+
+		userInputService.MouseIconEnabled = false
+		userInputService.MouseBehavior = Enum.MouseBehavior.LockCurrentPosition
+
+		targetFrame.TargetLabel.Text = target.Name
+		targetFrame.Health.Size = UDim2.new(target.Humanoid.Health/target.Humanoid.MaxHealth, 0, 1, 0)
+
+		healthConnection = target.Humanoid.Changed:Connect(function()
+			if target.Humanoid then
+				targetFrame.Health:TweenSize(UDim2.new(target.Humanoid.Health/target.Humanoid.MaxHealth, 0, 1, 0))
+			end
+		end)
+
+		tweenService:Create(targetFrame, TweenInfo.new(0.2), {GroupTransparency = 0}):Play()
+	else
+		camera.Freecam(targetFrame)
+		lookConnection:Disconnect()
+		return
+	end
+
+	local lastObstructed = nil
+	local lastTime = tick()
+	local lastDelta = 0
+
+	lookConnection = runService.RenderStepped:Connect(function(dt)
+		dt = (lastDelta + dt)/2 -- Smooth the delta to prevent fps drops
+		lastDelta = dt
+
+		if not target then 
+			camera.Freecam(targetFrame)
+			return 
+		end
+
+		local distance = (target.HumanoidRootPart.Position - character.HumanoidRootPart.Position).Magnitude
+
+		local requiresLineOfSight = camera.LockOnInfo.RequiresLineOfSight
+		local hasLineOfSight = camera.IsTargetInView(character, target)
+		local lineOfSight = (hasLineOfSight and requiresLineOfSight) or not requiresLineOfSight -- Check for line of sight if required
+
+		if not lineOfSight then
+			if not lastObstructed then
+				lastObstructed = tick()
+			elseif tick() - lastObstructed > 1 then
+				lastObstructed = nil
+				camera.Freecam(targetFrame)
+				lookConnection:Disconnect()
+				return
+			end
+		else
+			lastObstructed = nil
+		end
+
+		if (distance < camera.LockOnInfo.Range and target.Humanoid.Health > 0) then
+			local targetPosition = Vector3.new(target.HumanoidRootPart.Position.X, character.HumanoidRootPart.Position.Y, target.HumanoidRootPart.Position.Z)
+			local newCFrame = CFrame.lookAt(character.HumanoidRootPart.Position, targetPosition, character.HumanoidRootPart.CFrame.UpVector)
+			character.HumanoidRootPart.CFrame = newCFrame
+
+			local offsetX = humanoidRootPart.CFrame.RightVector * camera.LockOnInfo.Offset.X
+			local offsetY = humanoidRootPart.CFrame.UpVector * camera.LockOnInfo.Offset.Y
+			local offsetZ = humanoidRootPart.CFrame.LookVector * camera.LockOnInfo.Offset.Z
+
+			local offset = offsetX + offsetY + offsetZ
+			local cameraPosition = humanoidRootPart.Position + offset
+
+			local targetCFrame = CFrame.lookAt(cameraPosition, target.HumanoidRootPart.Position, humanoidRootPart.CFrame.UpVector)
+			cam.CFrame = cam.CFrame:Lerp(targetCFrame, dt * camera.LockOnInfo.Speed)
+
+			if tick() - lastTime > camera.LockOnInfo.SwitchDebounce then
+				local mouseDeltaX = userInputService:GetMouseDelta().X
+
+				if mouseDeltaX > camera.LockOnInfo.SwitchSens or mouseDeltaX < -camera.LockOnInfo.SwitchSens then
+					local _, rightTarget, leftTarget = camera.GetTargetsClosestCrosshair(character, cam)
+
+					if mouseDeltaX > camera.LockOnInfo.SwitchSens and rightTarget and camera.IsTargetInView(character, rightTarget) then -- Determine the direction of the mouse and switching target accordingly
+						camera.SelectTarget(target, rightTarget)
+						target = rightTarget
+					elseif mouseDeltaX < -camera.LockOnInfo.SwitchSens and leftTarget and camera.IsTargetInView(character, leftTarget)  then
+						camera.SelectTarget(target, leftTarget)
+						target = leftTarget
+					end
+				end
+
+				lastTime = tick()
+			end
+		else
+			camera.Freecam(targetFrame)
+		end
+	end)
+
+	local deathConnection
+	deathConnection = humanoid.Died:Connect(function()
+		deathConnection:Disconnect()
+		camera.Freecam(targetFrame)
+	end)
+
+	return target
+end
+
+function camera.Freecam(targetFrame)
+	lookConnection:Disconnect()
+	healthConnection:Disconnect()
+
+	camera.SelectTarget(target, nil)
+
+	userInputService.MouseIconEnabled = true
+	userInputService.MouseBehavior = Enum.MouseBehavior.Default
+
+	targetFrame.TargetLabel.Text = ""
+	targetFrame.Health.Size = UDim2.new(1, 0, 1, 0)
+
+	tweenService:Create(targetFrame, TweenInfo.new(0.2), {GroupTransparency = 1}):Play()
+
+	local cam = workspace.CurrentCamera
+	cam.CameraType = Enum.CameraType.Custom
+end
+
+return camera
+
+end;
+};
+-- StarterGui.ClutchMenu.TopBar.Handler
+local function C_56()
+local script = G2L["56"];
+	--=-=-=-=-=-=-=-- {Variables} --=-=-=-=-=-=-=--
+	--=-=-- Main Variables --=-=--
+	local UIS = game:GetService("UserInputService")
+	local RPS = game:GetService("ReplicatedStorage")
+	local SSS = game:GetService("ServerScriptService")
+	local MPS = game:GetService("MarketplaceService")
+	local TS = game:GetService("TweenService")
+	local Lighting = game:GetService("Lighting")
+	local RS= game:GetService("RunService")
+	local plr = game.Players.LocalPlayer
+	local char = plr.Character
+	local cam = game.Workspace.CurrentCamera
+	local hum = char:WaitForChild("Humanoid")
+	local hrp = char:WaitForChild("HumanoidRootPart")
+	local Mouse = plr:GetMouse()
+	local UIAnims = require(script.UIAnimations)
+	
+	--=-=-- UI Variables --=-=--
+	
+	local TopBar = script.Parent
+	local MainFrame = TopBar.Clipper.Page
+	local Pages = MainFrame.Pages
+	local SideBar = MainFrame.SideBar
+	local MinimiseCD = false
+	local MovementOpen = true
+	local CameraOpen = false
+	local MovementCommands = Pages.Movement.Commands
+	local CameraCommands = Pages.Camera.Commands
+	local IsNoclipping = false
+	local InfiniteJumpEnabled = false
+	local ESPEnabled = false
+	local HackList = script.Parent.Parent:WaitForChild("HackList")
+	local oldpos
+	
+	--=-=-- Lock-On Variables --=-=--
+	
+	local cameraModule = require(script:WaitForChild("Camera"))
+	local cameraMode = "Freecam"
+	local main = script.Main
+	local targetFrame = main.Target
+	
+	--=-=-- Drag Variables --=-=--
+	
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	--=-=-=-=-=-=-=-- {Functions} --=-=-=-=-=-=-=--
+	--=-=-- Utility --=-=--
+	
+	TopBar.Minimise.MouseButton1Click:Connect(function()
+		if MinimiseCD == false then
+			oldpos = TopBar.Position
+			MinimiseCD = true
+			TopBar.Expand.Visible = true
+			TopBar.Minimise.Visible = false
+			UIAnims.TweenPos(TopBar, UDim2.new(0.334, 0,0, 0), 0.6, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(MainFrame, UDim2.new(0.5, 0,-0.315, 0), 0.6, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(MainFrame.Lines.Line2, UDim2.new(0.086, 0,-0.11, 0), 0.8, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(Pages, UDim2.new(0.091, 0,-0.12, 0), 0.6, Enum.EasingStyle.Quad)
+			task.wait(0.65)
+			MinimiseCD = false
+		end
+	end)
+	
+	TopBar.Expand.MouseButton1Click:Connect(function()
+		if MinimiseCD == false then
+			MinimiseCD = true
+			TopBar.Expand.Visible = false
+			TopBar.Minimise.Visible = true
+			UIAnims.TweenPos(TopBar, oldpos, 0.6, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(MainFrame, UDim2.new(0.5, 0,0.5, 0), 0.6, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(MainFrame.Lines.Line2, UDim2.new(0.086, 0,0.11, 0), 0.8, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(Pages, UDim2.new(0.091, 0,0.12, 0), 0.6, Enum.EasingStyle.Quad)
+			task.wait(0.9)
+			MinimiseCD = false
+		end
+	end)
+	
+	--=-=-- Smooth Drag --=-=--
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(TopBar, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	TopBar.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = TopBar.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+	
+	--=-=-- Side Buttons --=-=--
+	
+	SideBar.Camera.MouseButton1Click:Connect(function()
+		UIAnims.TweenPos(SideBar.Slider, UDim2.new(1, 0,0.169, 0), 0.3, Enum.EasingStyle.Quad)
+		if CameraOpen == false and MovementOpen == true then
+			CameraOpen = true
+			MovementOpen = false
+			Pages.Movement.Position = UDim2.new(0, 0,0, 0)
+			Pages.Camera.Position = UDim2.new(0, 0,1, 0)
+			UIAnims.TweenPos(Pages.Movement, UDim2.new(0, 0,-1, 0), 0.6, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(Pages.Camera, UDim2.new(0, 0,0, 0), 0.6, Enum.EasingStyle.Quad)
+		end
+	end)
+	
+	SideBar.Movement.MouseButton1Click:Connect(function()
+		UIAnims.TweenPos(SideBar.Slider, UDim2.new(1, 0,0, 0), 0.3, Enum.EasingStyle.Quad)
+		if CameraOpen == true and MovementOpen == false then
+			CameraOpen = false
+			MovementOpen = true
+			Pages.Movement.Position = UDim2.new(0, 0,1, 0)
+			Pages.Camera.Position = UDim2.new(0, 0,0, 0)
+			UIAnims.TweenPos(Pages.Movement, UDim2.new(0, 0,0, 0), 0.6, Enum.EasingStyle.Quad)
+			UIAnims.TweenPos(Pages.Camera, UDim2.new(0, 0,-1, 0), 0.6, Enum.EasingStyle.Quad)
+		end
+	end)
+	
+	--=-=-- Sliders --=-=--
+	
+	local MaxSpeed = 3 or 300/300
+	local StartSpeed = game.StarterPlayer.CharacterWalkSpeed / 100 or game.StarterPlayer.CharacterWalkSpeed/300
+	local SpeedSliderActive = false
+	local MaxJump = 3 or 300/300
+	local StartJump
+	
+	local SpeedSliderActive = false
+	local JumpSliderActive = false
+	local TweenStyle = TweenInfo.new(0.5, Enum.EasingStyle.Exponential)
+	
+	script.Speed.Value = game.StarterPlayer.CharacterWalkSpeed
+	MovementCommands.SpeedSlider.Amount.Text = tostring(game.StarterPlayer.CharacterWalkSpeed)
+	
+	if game.StarterPlayer.CharacterUseJumpPower then
+		StartJump =	game.StarterPlayer.CharacterJumpPower / 100 or game.StarterPlayer.CharacterJumpPower/300
+		script.Jump.Value = game.StarterPlayer.CharacterJumpPower
+		MovementCommands.JumpSlider.Amount.Text = math.round(tostring(game.StarterPlayer.CharacterJumpPower))
+	else
+		StartJump =	game.StarterPlayer.CharacterJumpHeight / 100 or game.StarterPlayer.CharacterJumpHeight /300
+		script.Jump.Value = game.StarterPlayer.CharacterJumpHeight
+		MovementCommands.JumpSlider.Amount.Text = math.round(tostring(game.StarterPlayer.CharacterJumpHeight))
+	end
+	
+	local function UpdateSpeed()
+		local output = math.clamp(((Vector2.new(Mouse.X, Mouse.Y) - MovementCommands.SpeedSlider.AbsolutePosition) / MovementCommands.SpeedSlider.AbsoluteSize).X, 0, 1)
+		
+		local outputclamped = StartSpeed + (output * (MaxSpeed - StartSpeed))
+		
+		if script.Speed.Value ~= outputclamped then
+			TS:Create(MovementCommands.SpeedSlider.Slide, TweenStyle, {Size = UDim2.fromScale(output, 1)}):Play()
+		end
+		
+		script.Speed.Value = outputclamped * 100
+		MovementCommands.SpeedSlider.Amount.Text = tostring(math.round(script.Speed.Value))
+	end
+	
+	local function UpdateJump()
+		local output = math.clamp(((Vector2.new(Mouse.X, Mouse.Y) - MovementCommands.JumpSlider.AbsolutePosition) / MovementCommands.JumpSlider.AbsoluteSize).X, 0, 1)
+	
+		local outputclamped = StartJump + (output * (MaxJump - StartJump))
+	
+		if script.Jump.Value ~= outputclamped then
+			TS:Create(MovementCommands.JumpSlider.Slide, TweenStyle, {Size = UDim2.fromScale(output, 1)}):Play()
+		end
+	
+		script.Jump.Value = outputclamped * 100
+		MovementCommands.JumpSlider.Amount.Text = tostring(math.round(script.Jump.Value))
+	end
+	
+	local function ActivateSpeedSlider()
+		SpeedSliderActive = true
+		while SpeedSliderActive do
+			UpdateSpeed()
+			task.wait()
+		end
+	end
+	
+	local function ActivateJumpSlider()
+		JumpSliderActive = true
+		while JumpSliderActive do
+			UpdateJump()
+			task.wait()
+		end
+	end
+	
+	MovementCommands.SpeedSlider.Trigger.MouseButton1Down:Connect(ActivateSpeedSlider)
+	MovementCommands.JumpSlider.Trigger.MouseButton1Down:Connect(ActivateJumpSlider)
+	
+	UIS.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			SpeedSliderActive = false
+			JumpSliderActive = false
+		end
+	end)
+	
+	--=-=-- Buttons --=-=--
+	
+	local function ButtonAnimation(Frame: Frame)
+		Frame.ClipsDescendants = true
+		
+		local MouseX = Mouse.X
+		local MouseY = Mouse.Y
+		
+		local RandX = math.random(3, 7)
+		
+		local NewCircle = Instance.new("Frame")
+		NewCircle.Size = UDim2.new(0, 0,0, 0)
+		NewCircle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+		NewCircle.Parent = Frame
+		NewCircle.AnchorPoint = Vector2.new(0.5, 0.5)
+		NewCircle.Position = UDim2.new(RandX / 10, 0,0.5 ,0)
+	--	NewCircle.Position = UDim2.new(0, MouseX,0, MouseY)
+		
+		local NewCorner = Instance.new("UICorner")
+		NewCorner.CornerRadius = UDim.new(1, 1)
+		NewCorner.Parent = NewCircle
+		
+		UIAnims.TweenSize(NewCircle, UDim2.new(0.444, 0,4, 0), 0.5, Enum.EasingStyle.Quad)
+		UIAnims.TweenBackTransparency(NewCircle, 1, 0.5, Enum.EasingStyle.Quad)
+		
+		task.wait(0.5)
+		
+		NewCircle:Destroy()
+	end
+	
+	MovementCommands.Freeze.MouseButton1Click:Connect(function()
+		plr.Character:WaitForChild("HumanoidRootPart").Anchored = true
+		if not HackList:FindFirstChild("Freeze") then
+			local NewTemp = script.Template:Clone()
+			NewTemp.Parent = HackList
+			NewTemp.Text = "Freeze Character"
+			NewTemp.Name = "Freeze"
+		end
+		ButtonAnimation(MovementCommands.Freeze)
+	end)
+	
+	MovementCommands.UnFreeze.MouseButton1Click:Connect(function()
+		plr.Character:WaitForChild("HumanoidRootPart").Anchored = false
+		if 	HackList:FindFirstChild("Freeze") then
+			HackList:FindFirstChild("Freeze"):Destroy()
+		end
+		ButtonAnimation(MovementCommands.UnFreeze)
+	end)
+	
+	MovementCommands.EnableNoclip.MouseButton1Click:Connect(function()
+		IsNoclipping = true
+		if not HackList:FindFirstChild("Noclip") then
+			local NewTemp = script.Template:Clone()
+			NewTemp.Parent = HackList
+			NewTemp.Text = "Noclip"
+			NewTemp.Name = "Noclip"
+		end
+		ButtonAnimation(MovementCommands.EnableNoclip)
+	end)
+	
+	MovementCommands.DisableNoclip.MouseButton1Click:Connect(function()
+		IsNoclipping = false
+		if 	HackList:FindFirstChild("Noclip") then
+			HackList:FindFirstChild("Noclip"):Destroy()
+		end
+		ButtonAnimation(MovementCommands.DisableNoclip)
+	end)
+	
+	MovementCommands.EnableInfJump.MouseButton1Click:Connect(function()
+		InfiniteJumpEnabled = true
+		if not HackList:FindFirstChild("InfJump") then
+			local NewTemp = script.Template:Clone()
+			NewTemp.Parent = HackList
+			NewTemp.Text = "Infinite Jump"
+			NewTemp.Name = "InfJump"
+		end
+		ButtonAnimation(MovementCommands.EnableInfJump)
+	end)
+	
+	MovementCommands.DisableInfJump.MouseButton1Click:Connect(function()
+		InfiniteJumpEnabled = false
+		if 	HackList:FindFirstChild("InfJump") then
+			HackList:FindFirstChild("InfJump"):Destroy()
+		end
+		ButtonAnimation(MovementCommands.DisableInfJump)
+	end)
+	
+	CameraCommands.EnableESP.MouseButton1Click:Connect(function()
+		ESPEnabled = true
+		if not HackList:FindFirstChild("ESP") then
+			local NewTemp = script.Template:Clone()
+			NewTemp.Parent = HackList
+			NewTemp.Text = "ESP"
+			NewTemp.Name = "ESP"
+		end
+		ButtonAnimation(CameraCommands.EnableESP)
+	end)
+	
+	CameraCommands.DisableESP.MouseButton1Click:Connect(function()
+		ESPEnabled = false
+		for i, Players in pairs(game.Players:GetPlayers()) do
+			if Players.Character:FindFirstChild("ESPHighlight") then
+				Players.Character:FindFirstChild("ESPHighlight"):Destroy()
+			end
+		end
+		if 	HackList:FindFirstChild("ESP") then
+			HackList:FindFirstChild("ESP"):Destroy()
+		end
+		ButtonAnimation(CameraCommands.DisableESP)
+	end)
+	
+	CameraCommands.EnableLockOn.MouseButton1Click:Connect(function()
+		if cameraMode == "Freecam" then
+			cameraMode = "LockNearest"
+			cameraModule.LockNearest(targetFrame)
+		end
+		if not HackList:FindFirstChild("LockOn") then
+			local NewTemp = script.Template:Clone()
+			NewTemp.Parent = HackList
+			NewTemp.Text = "Lock-On"
+			NewTemp.Name = "LockOn"
+		end
+		ButtonAnimation(CameraCommands.EnableLockOn)
+	end)
+	
+	CameraCommands.DisableLockOn.MouseButton1Click:Connect(function()
+		if cameraMode ~= "Freecam" then
+			cameraMode = "Freecam"
+			cameraModule.Freecam(targetFrame)
+		end
+		if 	HackList:FindFirstChild("LockOn") then
+			HackList:FindFirstChild("LockOn"):Destroy()
+		end
+		ButtonAnimation(CameraCommands.DisableLockOn)
+	end)
+	
+	UIS.JumpRequest:Connect(function()
+		if InfiniteJumpEnabled then
+			plr.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+		end
+	end)
+	
+	RS.RenderStepped:Connect(function()
+		
+		if plr.Character:WaitForChild("Humanoid").WalkSpeed > game.StarterPlayer.CharacterWalkSpeed then
+			if not HackList:FindFirstChild("Speed") then
+				local NewTemp = script.Template:Clone()
+				NewTemp.Parent = HackList
+				NewTemp.Text = "Speed"
+				NewTemp.Name = "Speed"
+			end
+		else
+			if HackList:FindFirstChild("Speed") then
+				HackList:FindFirstChild("Speed"):Destroy()
+			end
+		end
+		
+		if game.StarterPlayer.CharacterJumpPower then
+			if plr.Character:WaitForChild("Humanoid").JumpPower > game.StarterPlayer.CharacterJumpPower then
+				if not HackList:FindFirstChild("Jump") then
+					local NewTemp = script.Template:Clone()
+					NewTemp.Parent = HackList
+					NewTemp.Text = "Jump"
+					NewTemp.Name = "Jump"
+				end
+			else
+				if HackList:FindFirstChild("Jump") then
+					HackList:FindFirstChild("Jump"):Destroy()
+				end
+			end
+			
+		else
+			
+			if plr.Character:WaitForChild("Humanoid").JumpHeight > game.StarterPlayer.CharacterJumpHeight then
+				if not HackList:FindFirstChild("Jump") then
+					local NewTemp = script.Template:Clone()
+					NewTemp.Parent = HackList
+					NewTemp.Text = "Jump"
+					NewTemp.Name = "Jump"
+				end
+			else
+				if HackList:FindFirstChild("Jump") then
+					HackList:FindFirstChild("Jump"):Destroy()
+				end
+			end
+		end
+		
+		for i, Templates in pairs(HackList:GetChildren()) do
+			if Templates:IsA("TextLabel") then
+				Templates:FindFirstChild("Spinner").Rotation += 3
+			end
+		end
+		
+		if ESPEnabled then
+			for i, Players in pairs(game.Players:GetPlayers()) do
+				if not Players.Character:FindFirstChild("ESPHighlight") and Players.Name ~= plr.Name then
+					local ESPHighlight = Instance.new("Highlight")
+					ESPHighlight.Parent = Players.Character
+					ESPHighlight.FillTransparency = 0.25
+					ESPHighlight.Name = "ESPHighlight"
+				end
+			end
+		end
+		
+		plr.Character:FindFirstChild("Humanoid").WalkSpeed = script.Speed.Value
+	
+		if game.StarterPlayer.CharacterUseJumpPower then
+			plr.Character:WaitForChild("Humanoid").JumpPower = script.Jump.Value
+		else
+			plr.Character:WaitForChild("Humanoid").JumpHeight = script.Jump.Value
+		end
+		
+		MainFrame.UIStroke.Spinner.Rotation += 3
+		
+		if plr.Character and IsNoclipping == true then
+			for _, Limbs in pairs(plr.Character:GetDescendants()) do
+				if Limbs:IsA("Part") or Limbs:IsA("BasePart") then
+					Limbs.CanCollide = false
+				end
+			end
+		else
+			for _, Limbs in pairs(plr.Character:GetDescendants()) do
+				if Limbs:IsA("Part") or Limbs:IsA("BasePart") and Limbs.Name == "HumanoidRootPart" then
+					Limbs.CanCollide = true
+				end
+			end
+		end
+	end)
+end;
+task.spawn(C_56);
+
+return G2L["1"], require;
